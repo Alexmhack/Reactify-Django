@@ -79,7 +79,12 @@ class Posts extends Component {
 
 		return (
 			<div>
-				<PostInline title='This is the title' />
+				{posts.length > 0 ? 
+					posts.map((item, index) => {
+						<PostInline title={item} />
+					})
+					: <p>No posts found.</p>
+				}
 			</div>
 		)
 	}
