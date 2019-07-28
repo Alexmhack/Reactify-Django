@@ -14,6 +14,7 @@ class Posts extends Component {
 	}
 
 	loadPosts = () => {
+		let thisComp = this
 		const endpoint = '/api/posts/'
 		let lookupOptions = {
 			method: "GET",
@@ -28,7 +29,7 @@ class Posts extends Component {
 			return response.json()
 		}).then(function(responseData) {
 			console.log(responseData)
-			this.setState({
+			thisComp.setState({
 				posts: responseData
 			})
 		}).catch(function(errors) {
@@ -39,6 +40,9 @@ class Posts extends Component {
 	createPost = () => {
 		const endpoint = '/api/posts'
 		const csrfToken = cookies.load('csrftoken')
+
+		// define a let of the => this to use anywhere within this scope
+		let thisComp = this
 
 		let data = {
 	    "slug": "",
@@ -64,7 +68,9 @@ class Posts extends Component {
 				return response.json()
 			}).then(function(responseData) {
 				console.log(responseData)
-				this.setState({
+
+				// using this will refer to the fetch method and not the component itself
+				thisComp.setState({
 					posts: responseData
 				})
 			}).catch(function(errors) {
@@ -74,6 +80,9 @@ class Posts extends Component {
 	}
 
 	componentDidMount () {
+		this.setState({
+			posts: []
+		})
 		this.loadPosts()
 	}
 
