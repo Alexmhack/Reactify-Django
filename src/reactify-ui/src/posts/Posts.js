@@ -21,7 +21,40 @@ class Posts extends Component {
 		}).catch(function(errors) {
 			console.error(errors)
 		})
+	}
 
+	createPost = () => {
+		const endpoint = '/api/posts'
+		const csrfToken = cookie.load('csrftoken')
+
+		let data = {
+	    "slug": "",
+	    "title": "",
+	    "content": "",
+	    "draft": false,
+	    "publish": null
+		}
+
+		if (csrfToken !== undefined) {
+			let lookupOptions = {
+				method: "POST",
+				headers: {
+					'Content-Type': 'application/json',
+					'X-CSRFToken': csrfToken
+				},
+				body: JSON.stringify(data),
+				credentials: 'include'
+			}
+
+			fetch(endpoint, lookupOptions)
+			.then(function(response) {
+				return response.json()
+			}).then(function(responseData) {
+				console.log(responseData)
+			}).catch(function(errors) {
+				console.error(errors)
+			})
+		}
 	}
 
 	componentDidMount () {
