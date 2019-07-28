@@ -5,6 +5,14 @@ import cookies from 'react-cookies'
 import PostInline from './PostInline'
 
 class Posts extends Component {
+	constructor (props) {
+		super(props)
+
+		this.state = {
+			posts: []
+		}
+	}
+
 	loadPosts = () => {
 		const endpoint = '/api/posts/'
 		let lookupOptions = {
@@ -27,7 +35,7 @@ class Posts extends Component {
 
 	createPost = () => {
 		const endpoint = '/api/posts'
-		const csrfToken = cookie.load('csrftoken')
+		const csrfToken = cookies.load('csrftoken')
 
 		let data = {
 	    "slug": "",
@@ -53,6 +61,9 @@ class Posts extends Component {
 				return response.json()
 			}).then(function(responseData) {
 				console.log(responseData)
+				this.setState({
+					posts: responseData
+				})
 			}).catch(function(errors) {
 				console.error(errors)
 			})
@@ -64,6 +75,8 @@ class Posts extends Component {
 	}
 
 	render () {
+		const {posts} = this.state
+
 		return (
 			<div>
 				<PostInline title='This is the title' />
