@@ -168,3 +168,9 @@ typings/
 # sublime text project
 try-react.sublime-project
 try-react.sublime-workspace
+
+# virtualenv files & folders
+Include/
+LICENSE.txt
+Scripts/
+tcl/
