@@ -28,6 +28,9 @@ class Posts extends Component {
 			return response.json()
 		}).then(function(responseData) {
 			console.log(responseData)
+			this.setState({
+				posts: responseData
+			})
 		}).catch(function(errors) {
 			console.error(errors)
 		})
@@ -81,7 +84,9 @@ class Posts extends Component {
 			<div>
 				{posts.length > 0 ? 
 					posts.map((item, index) => {
-						<PostInline title={item} />
+						return (
+							<PostInline title={item.title} />
+						)
 					})
 					: <p>No posts found.</p>
 				}
