@@ -9,7 +9,8 @@ class Posts extends Component {
 		super(props)
 
 		this.state = {
-			posts: []
+			posts: [],
+			postClass: 'card'
 		}
 	}
 
@@ -81,20 +82,22 @@ class Posts extends Component {
 
 	componentDidMount () {
 		this.setState({
-			posts: []
+			posts: [],
+			postClass: 'card'
 		})
 		this.loadPosts()
 	}
 
 	render () {
 		const {posts} = this.state
+		const {postClass} = this.state
 
 		return (
 			<div>
 				{posts.length > 0 ? 
 					posts.map((item, index) => {
 						return (
-							<PostInline post={item} />
+							<PostInline post={item} elClass={postClass} />
 						)
 					})
 					: <p>No posts found.</p>
