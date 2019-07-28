@@ -80,6 +80,13 @@ class Posts extends Component {
 		}
 	}
 
+	togglePostClass = (event) => {
+		event.preventDefault()
+		this.setState({
+			postClass: this.state.postClass == 'card' ? '' : 'card'
+		})
+	}
+
 	componentDidMount () {
 		this.setState({
 			posts: [],
@@ -100,6 +107,7 @@ class Posts extends Component {
 							<PostInline post={item} elClass={postClass} />
 						)
 					})
+					<button onClick={this.togglePostClass}>Toggle Post Class</button>
 					: <p>No posts found.</p>
 				}
 			</div>
