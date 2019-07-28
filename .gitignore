@@ -174,3 +174,6 @@ Include/
 LICENSE.txt
 Scripts/
 tcl/
+
+# sample project integration
+project/
