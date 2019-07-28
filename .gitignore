@@ -177,3 +177,6 @@ tcl/
 
 # sample project integration
 project/
+
+# collectstatic folder
+static-cdn-local/
