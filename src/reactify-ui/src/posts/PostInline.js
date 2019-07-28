@@ -3,11 +3,17 @@ import React, { Component } from 'react'
 class PostInline extends Component {
   render() {
   	const {post} = this.props
+  	const {elClass} = this.props
 
     return (
-      <div className="App">
-        <h1>{post.title}</h1>
-        <p>{post.content}</p>
+      <div>
+      	{post !== undefined ? 
+      		<div className={elClass}>
+		        <h1>{post.title}</h1>
+		        <p>{post.content}</p>
+		      </div>
+	        : ''
+	      }
       </div>
     );
   }
