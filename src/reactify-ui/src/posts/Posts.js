@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import 'whatwg-fetch'
 import cookies from 'react-cookies'
 
+import PostInline from './PostInline'
+
 class Posts extends Component {
 	loadPosts = () => {
 		const endpoint = '/api/posts/'
@@ -64,7 +66,7 @@ class Posts extends Component {
 	render () {
 		return (
 			<div>
-				<h1>Hello to posts</h1>
+				<PostInline title='This is the title' />
 			</div>
 		)
 	}
