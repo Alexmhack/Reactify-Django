@@ -6,7 +6,6 @@ class PostInline extends Component {
 
     return (
       <div className="App">
-        <p>Posts are now rendered inline.</p>
         <h1>{title}</h1>
       </div>
     );
