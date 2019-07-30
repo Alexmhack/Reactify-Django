@@ -36,7 +36,7 @@ class PostCreate extends Component {
 			.then(function(response) {
 				return response.json()
 			}).then(function(responseData) {
-				const {newPostItem} = this.props
+				const {newPostItem} = thisComp.props
 				newPostItem(responseData)
 			}).catch(function(errors) {
 				console.error(errors)
