@@ -92,32 +92,34 @@ class PostCreate extends Component {
 
 	render () {
 		return (
-			<form action='.' method='POST' onSubmit={this.handleSubmit}
-				ref={(el) => this.createFormRef = el}>
-				<div className='form-group'>
-					<label for='id_name'>Post Title</label>
-					<input ref={(el) => this.postTitleRef = el} type='text' id='id_name' name='title' className='form-control'
-						placeholder='Blog post title' onChange={this.handleInputChange} required='required' />
-				</div>
-				<div className='form-group'>
-					<label for='id_content'>Post Content</label>
-					<textarea type='text' id='id_content' name='content' className='form-control'
-						placeholder='Blog post content' onChange={this.handleInputChange} required='required'>
-					</textarea>
-				</div>
-				<div className='form-group'>
-					<input type='checkbox' id='id_draft' name='draft' className='form-control'
-						 onChange={this.handleInputChange} />
-					<label for='id_draft'>Draft</label>
-				</div>
-				<div className='form-group'>
-					<label for='id_publish_date'>Publish date</label>
-					<input type='date' id='id_publish_date' name='publish' className='form-control'
-						 onChange={this.handleInputChange} required='required' />
-				</div>
-				<button type='submit' className='btn btn-primary'>Save</button>
-			</form>
-			<button className='btn btn-secondary' onClick={this.clearForm}>Cancel</button>
+			<div>
+				<form action='.' method='POST' onSubmit={this.handleSubmit}
+					ref={(el) => this.createFormRef = el}>
+					<div className='form-group'>
+						<label for='id_name'>Post Title</label>
+						<input ref={(el) => this.postTitleRef = el} type='text' id='id_name' name='title' className='form-control'
+							placeholder='Blog post title' onChange={this.handleInputChange} required='required' />
+					</div>
+					<div className='form-group'>
+						<label for='id_content'>Post Content</label>
+						<textarea type='text' id='id_content' name='content' className='form-control'
+							placeholder='Blog post content' onChange={this.handleInputChange} required='required'>
+						</textarea>
+					</div>
+					<div className='form-group'>
+						<input type='checkbox' id='id_draft' name='draft' className='form-control'
+							 onChange={this.handleInputChange} />
+						<label for='id_draft'>Draft</label>
+					</div>
+					<div className='form-group'>
+						<label for='id_publish_date'>Publish date</label>
+						<input type='date' id='id_publish_date' name='publish' className='form-control'
+							 onChange={this.handleInputChange} required='required' />
+					</div>
+					<button type='submit' className='btn btn-primary'>Save</button>
+				</form>
+				<button className='btn btn-secondary' onClick={this.clearForm}>Cancel</button>
+			</div>
 		)
 	}
 }
