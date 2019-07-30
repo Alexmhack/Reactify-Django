@@ -14,7 +14,7 @@ class PostCreate extends Component {
 	}
 
 	createPost = (data) => {
-		const endpoint = '/api/posts'
+		const endpoint = '/api/posts/'
 		const csrfToken = cookies.load('csrftoken')
 
 		// define a let of the => this to use anywhere within this scope
