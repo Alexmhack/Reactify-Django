@@ -49,11 +49,6 @@ class PostCreate extends Component {
 	handleSubmit = (event) => {
 		event.preventDefault()
 		const data = this.state
-		if (data['draft'] === 'on') {
-			data['draft'] = true
-		} else {
-			data['draft'] = false
-		}
 		this.createPost(data)
 	}
 
@@ -72,6 +67,13 @@ class PostCreate extends Component {
 
 		this.setState({
 			[key]: value
+		})
+	}
+
+	handleDraftChange = (event) => {
+		console.log(this.state.draft)
+		this.setState({
+			draft: !this.state.draft
 		})
 	}
 
@@ -112,7 +114,8 @@ class PostCreate extends Component {
 					</div>
 					<div className='form-group'>
 						<input type='checkbox' id='id_draft' name='draft' className='form-control'
-							 onChange={this.handleInputChange} />
+							 onChange={this.handleDraftChange} value={this.state.draft}
+							 checked={this.state.draft} />
 						<label for='id_draft'>Draft</label>
 					</div>
 					<div className='form-group'>
