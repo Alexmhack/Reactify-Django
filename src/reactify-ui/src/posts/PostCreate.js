@@ -36,12 +36,8 @@ class PostCreate extends Component {
 			.then(function(response) {
 				return response.json()
 			}).then(function(responseData) {
-				console.log(responseData)
-
-				// using this will refer to the fetch method and not the component itself
-				thisComp.setState({
-					posts: responseData
-				})
+				const {newPostItem} = this.props
+				newPostItem(responseData)
 			}).catch(function(errors) {
 				console.error(errors)
 			})
