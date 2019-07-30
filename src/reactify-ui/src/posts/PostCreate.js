@@ -87,7 +87,7 @@ class PostCreate extends Component {
 			publish: null
 		}
 
-		this.postTitleRef.current.focus()
+		this.postTitleRef.focus()
 	}
 
 	render () {
