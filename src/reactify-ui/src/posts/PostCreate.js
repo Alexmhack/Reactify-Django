@@ -75,7 +75,7 @@ class PostCreate extends Component {
 	}
 
 	clearForm = (event) => {
-		event.preventDefault()
+		if (event) event.preventDefault()
 		this.createFormRef.reset()
 	}
 
