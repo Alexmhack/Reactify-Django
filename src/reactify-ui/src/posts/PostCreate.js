@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import cookies from 'react-cookies'
 import 'whatwg-fetch'
+import moment from 'moment'
 
 class PostCreate extends Component {
 	constructor (props) {
@@ -79,18 +80,21 @@ class PostCreate extends Component {
 		this.createFormRef.reset()
 	}
 
-	componentDidMount = (event) => {
-		this.state = {
+	componentDidMount = () => {
+		this.setState({
 			title: null,
 			content: null,
 			draft: false,
-			publish: null
-		}
+			publish: moment().format('YYYY-MM-DD')
+		})
 
 		this.postTitleRef.focus()
 	}
 
 	render () {
+		const {publish} = this.state
+		console.log(publish)
+
 		return (
 			<div>
 				<form action='.' method='POST' onSubmit={this.handleSubmit}
@@ -114,7 +118,7 @@ class PostCreate extends Component {
 					<div className='form-group'>
 						<label for='id_publish_date'>Publish date</label>
 						<input type='date' id='id_publish_date' name='publish' className='form-control'
-							 onChange={this.handleInputChange} required='required' />
+							 onChange={this.handleInputChange} required='required' value={publish} />
 					</div>
 					<button type='submit' className='btn btn-primary'>Save</button>
 				</form>
