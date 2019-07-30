@@ -39,48 +39,6 @@ class Posts extends Component {
 		})
 	}
 
-	createPost = () => {
-		const endpoint = '/api/posts'
-		const csrfToken = cookies.load('csrftoken')
-
-		// define a let of the => this to use anywhere within this scope
-		let thisComp = this
-
-		let data = {
-	    "slug": "",
-	    "title": "",
-	    "content": "",
-	    "draft": false,
-	    "publish": null
-		}
-
-		if (csrfToken !== undefined) {
-			let lookupOptions = {
-				method: "POST",
-				headers: {
-					'Content-Type': 'application/json',
-					'X-CSRFToken': csrfToken
-				},
-				body: JSON.stringify(data),
-				credentials: 'include'
-			}
-
-			fetch(endpoint, lookupOptions)
-			.then(function(response) {
-				return response.json()
-			}).then(function(responseData) {
-				console.log(responseData)
-
-				// using this will refer to the fetch method and not the component itself
-				thisComp.setState({
-					posts: responseData
-				})
-			}).catch(function(errors) {
-				console.error(errors)
-			})
-		}
-	}
-
 	togglePostClass = (event) => {
 		event.preventDefault()
 		this.setState({
