@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 
 class PostCreate extends Component {
+	handleSubmit = (event) => {
+		event.preventDefault()
+	}
+
 	render () {
 		return (
-			<form action='.' method='POST'>
+			<form action='.' method='POST' onSubmit={this.handleSubmit}>
 				<div className='form-group'>
 					<label for='id_name'>Post Title</label>
 					<input type='text' id='id_name' name='title' className='form-control' placeholder='Blog post title' />
