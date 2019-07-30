@@ -99,6 +99,7 @@ class Posts extends Component {
 	render () {
 		const {posts} = this.state
 		const {postClass} = this.state
+		const csrfToken = cookies.load('csrftoken')
 
 		return (
 			<div>
@@ -111,9 +112,11 @@ class Posts extends Component {
 					})
 					: <p>No posts found.</p>
 				}
-				<div className='p-5 m-5'>
-					<PostCreate />
-				</div>
+				{(csrfToken !== undefined && csrfToken !== null)  ? 
+					<div className='p-5 m-5'>
+						<PostCreate />
+					</div>
+				: ''}
 			</div>
 		)
 	}
