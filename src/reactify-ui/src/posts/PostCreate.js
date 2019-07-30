@@ -86,6 +86,8 @@ class PostCreate extends Component {
 			draft: false,
 			publish: null
 		}
+
+		this.postTitleRef.current.focus()
 	}
 
 	render () {
@@ -94,7 +96,7 @@ class PostCreate extends Component {
 				ref={(el) => this.createFormRef = el}>
 				<div className='form-group'>
 					<label for='id_name'>Post Title</label>
-					<input type='text' id='id_name' name='title' className='form-control'
+					<input ref={(el) => this.postTitleRef = el} type='text' id='id_name' name='title' className='form-control'
 						placeholder='Blog post title' onChange={this.handleInputChange} required='required' />
 				</div>
 				<div className='form-group'>
