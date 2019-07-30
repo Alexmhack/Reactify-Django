@@ -4,7 +4,10 @@ class PostCreate extends Component {
 	constructor (props) {
 		super(props)
 		this.state = {
-
+			title: null,
+			content: null,
+			draft: false,
+			publish: null
 		}
 	}
 
@@ -24,6 +27,15 @@ class PostCreate extends Component {
 		this.setState({
 			[event.target.name]: event.target.value
 		})
+	}
+
+	componentDidMount = (event) => {
+		this.state = {
+			title: null,
+			content: null,
+			draft: false,
+			publish: null
+		}
 	}
 
 	render () {
