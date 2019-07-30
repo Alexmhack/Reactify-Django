@@ -54,6 +54,14 @@ class Posts extends Component {
 		this.loadPosts()
 	}
 
+	handleNewPostItem = (postItemData) => {
+		let currentPosts = this.state.posts
+		currentPosts.unshift(postItemData)
+		this.setState({
+			posts: currentPosts
+		})
+	}
+
 	render () {
 		const {posts} = this.state
 		const {postClass} = this.state
@@ -72,7 +80,7 @@ class Posts extends Component {
 				}
 				{(csrfToken !== undefined && csrfToken !== null)  ? 
 					<div className='p-5 m-5'>
-						<PostCreate />
+						<PostCreate newPostItem={this.handleNewPostItem} />
 					</div>
 				: ''}
 			</div>
