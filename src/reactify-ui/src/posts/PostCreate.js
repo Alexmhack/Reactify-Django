@@ -26,12 +26,12 @@ class PostCreate extends Component {
 				<div className='form-group'>
 					<label for='id_name'>Post Title</label>
 					<input type='text' id='id_name' name='title' className='form-control'
-						placeholder='Blog post title' onChange={this.handleInputChange} />
+						placeholder='Blog post title' onChange={this.handleInputChange} required='required' />
 				</div>
 				<div className='form-group'>
 					<label for='id_content'>Post Content</label>
 					<textarea type='text' id='id_content' name='content' className='form-control'
-						placeholder='Blog post content' onChange={this.handleInputChange}>
+						placeholder='Blog post content' onChange={this.handleInputChange} required='required'>
 					</textarea>
 				</div>
 				<div className='form-group'>
@@ -42,7 +42,7 @@ class PostCreate extends Component {
 				<div className='form-group'>
 					<label for='id_publish_date'>Publish date</label>
 					<input type='date' id='id_publish_date' name='publish' className='form-control'
-						 onChange={this.handleInputChange} />
+						 onChange={this.handleInputChange} required='required' />
 				</div>
 				<button type='submit' className='btn btn-primary'>Save</button>
 			</form>
