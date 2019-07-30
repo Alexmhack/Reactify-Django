@@ -10,6 +10,7 @@ class PostCreate extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
+		console.log(this.state)
 	}
 
 	handleInputChange = (event) => {
@@ -17,7 +18,6 @@ class PostCreate extends Component {
 		this.setState({
 			[event.target.name]: event.target.value
 		})
-		console.log(this.state)
 	}
 
 	render () {
