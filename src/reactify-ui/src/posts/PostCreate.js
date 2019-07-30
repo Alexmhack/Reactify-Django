@@ -19,6 +19,7 @@ class PostCreate extends Component {
 
 		// define a let of the => this to use anywhere within this scope
 		let thisComp = this
+		console.log(data)
 
 		if (csrfToken !== undefined) {
 			let lookupOptions = {
@@ -49,7 +50,6 @@ class PostCreate extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		console.log(this.state)
 		const data = this.state
 		if (data['draft'] === 'on') {
 			data['draft'] = true
