@@ -29,7 +29,7 @@ class PostCreate extends Component {
 		value = event.target.value
 
 		if (key === 'title') {
-			if (value.length > 10) {
+			if (value.length > 250) {
 				alert('Title cannot be longer than 10 characters')
 				value = ''
 			}
