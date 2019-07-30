@@ -62,8 +62,8 @@ class PostCreate extends Component {
 	handleInputChange = (event) => {
 		event.preventDefault()
 		
-		key = event.target.name
-		value = event.target.value
+		const key = event.target.name
+		let value = event.target.value
 
 		if (key === 'title') {
 			if (value.length > 250) {
@@ -73,7 +73,7 @@ class PostCreate extends Component {
 		}
 
 		this.setState({
-			[event.target.name]: event.target.value
+			[key]: value
 		})
 	}
 
