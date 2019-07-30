@@ -38,6 +38,7 @@ class PostCreate extends Component {
 			}).then(function(responseData) {
 				const {newPostItem} = thisComp.props
 				newPostItem(responseData)
+				thisComp.clearForm()
 			}).catch(function(errors) {
 				console.error(errors)
 			})
@@ -73,6 +74,11 @@ class PostCreate extends Component {
 		})
 	}
 
+	clearForm = (event) => {
+		event.preventDefault()
+		this.createFormRef.reset()
+	}
+
 	componentDidMount = (event) => {
 		this.state = {
 			title: null,
@@ -84,7 +90,8 @@ class PostCreate extends Component {
 
 	render () {
 		return (
-			<form action='.' method='POST' onSubmit={this.handleSubmit}>
+			<form action='.' method='POST' onSubmit={this.handleSubmit}
+				ref={(el) => this.createFormRef = el}>
 				<div className='form-group'>
 					<label for='id_name'>Post Title</label>
 					<input type='text' id='id_name' name='title' className='form-control'
