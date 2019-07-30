@@ -3,6 +3,7 @@ import 'whatwg-fetch'
 import cookies from 'react-cookies'
 
 import PostInline from './PostInline'
+import PostCreate from './PostCreate'
 
 class Posts extends Component {
 	constructor (props) {
@@ -110,6 +111,9 @@ class Posts extends Component {
 					})
 					: <p>No posts found.</p>
 				}
+				<div className='p-5 m-5'>
+					<PostCreate />
+				</div>
 			</div>
 		)
 	}
