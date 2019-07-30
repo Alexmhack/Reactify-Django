@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class PostCreate extends Component {
 	render () {
 		return (
-			<form>
+			<form action='.' method='POST'>
 				<div className='form-group'>
 					<label for='id_name'>Post Title</label>
 					<input type='text' id='id_name' name='title' className='form-control' placeholder='Blog post title' />
@@ -21,7 +21,7 @@ class PostCreate extends Component {
 					<label for='id_publish_date'>Publish date</label>
 					<input type='date' id='id_publish_date' name='publish' className='form-control' />
 				</div>
-				<button className='btn btn-primary'>Save</button>
+				<button type='submit' className='btn btn-primary'>Save</button>
 			</form>
 		)
 	}
