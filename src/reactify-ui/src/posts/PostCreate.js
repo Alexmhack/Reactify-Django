@@ -11,6 +11,12 @@ class PostCreate extends Component {
 	handleSubmit = (event) => {
 		event.preventDefault()
 		console.log(this.state)
+		const data = this.state
+		if (data['draft'] === 'on') {
+			data['draft'] = true
+		} else {
+			data['draft'] = false
+		}
 	}
 
 	handleInputChange = (event) => {
