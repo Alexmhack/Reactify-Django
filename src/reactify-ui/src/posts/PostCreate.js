@@ -20,14 +20,6 @@ class PostCreate extends Component {
 		// define a let of the => this to use anywhere within this scope
 		let thisComp = this
 
-		let data = {
-	    "slug": "",
-	    "title": "",
-	    "content": "",
-	    "draft": false,
-	    "publish": null
-		}
-
 		if (csrfToken !== undefined) {
 			let lookupOptions = {
 				method: "POST",
@@ -64,6 +56,7 @@ class PostCreate extends Component {
 		} else {
 			data['draft'] = false
 		}
+		this.createPost(data)
 	}
 
 	handleInputChange = (event) => {
