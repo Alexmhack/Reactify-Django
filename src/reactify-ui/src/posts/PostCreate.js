@@ -115,6 +115,7 @@ class PostCreate extends Component {
 				</div>
 				<button type='submit' className='btn btn-primary'>Save</button>
 			</form>
+			<button className='btn btn-secondary' onClick={this.clearForm}>Cancel</button>
 		)
 	}
 }
