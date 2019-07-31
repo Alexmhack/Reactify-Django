@@ -48,7 +48,7 @@ class PostCreate extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		const data = this.state
+		let data = this.state
 		this.createPost(data)
 	}
 
@@ -70,8 +70,7 @@ class PostCreate extends Component {
 		})
 	}
 
-	handleDraftChange = (event) => {
-		if (event) event.preventDefault()
+	handleDraftChange = () => {
 		this.setState({
 			draft: !this.state.draft
 		})
@@ -117,7 +116,7 @@ class PostCreate extends Component {
 						<input type='checkbox' id='id_draft' name='draft' className='form-control'
 							 onChange={this.handleDraftChange} value={this.state.draft} />
 						<label for='id_draft'>Draft</label>
-						<button onClick={this.handleDraftChange}>Toggle Draft</button>
+						<button onClick={(event) => {event.preventDefault(); this.handleDraftChange()}}>Toggle Draft</button>
 					</div>
 					<div className='form-group'>
 						<label for='id_publish_date'>Publish date</label>
