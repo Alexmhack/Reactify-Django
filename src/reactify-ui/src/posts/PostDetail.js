@@ -16,6 +16,7 @@ class PostDetail extends Component {
 			this.setState({
 				slug: slug
 			})
+			this.loadPosts(slug)
 		}
 	}
 
@@ -36,7 +37,7 @@ class PostDetail extends Component {
 		}).then(function(responseData) {
 			console.log(responseData)
 			thisComp.setState({
-				posts: responseData
+				post: responseData
 			})
 		}).catch(function(errors) {
 			console.error(errors)
