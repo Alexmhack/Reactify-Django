@@ -6,7 +6,8 @@ class PostDetail extends Component {
 		super(props)
 		this.state = {
 			slug: null,
-			post: null
+			post: null,
+			doneLoading: false
 		}
 	}
 
@@ -37,7 +38,8 @@ class PostDetail extends Component {
 		}).then(function(responseData) {
 			console.log(responseData)
 			thisComp.setState({
-				post: responseData
+				post: responseData,
+				doneLoading: true
 			})
 		}).catch(function(errors) {
 			console.error(errors)
