@@ -21,7 +21,6 @@ class PostUpdate extends Component {
 
 		// define a let of the => this to use anywhere within this scope
 		let thisComp = this
-		console.log(data)
 
 		if (csrfToken !== undefined) {
 			let lookupOptions = {
@@ -106,7 +105,9 @@ class PostUpdate extends Component {
 
 	render () {
 		const {publish} = this.state
-		console.log(publish)
+		const {title} = this.state
+		const {content} = this.state
+		const {draft} = this.state
 
 		return (
 			<div>
@@ -115,18 +116,20 @@ class PostUpdate extends Component {
 					<div className='form-group'>
 						<label for='id_name'>Post Title</label>
 						<input ref={(el) => this.postTitleRef = el} type='text' id='id_name' name='title' className='form-control'
-							placeholder='Blog post title' onChange={this.handleInputChange} required='required' />
+							placeholder='Blog post title' onChange={this.handleInputChange}
+							required='required' value={title} />
 					</div>
 					<div className='form-group'>
 						<label for='id_content'>Post Content</label>
 						<textarea type='text' id='id_content' name='content' className='form-control'
 							placeholder='Blog post content' onChange={this.handleInputChange}
-							required='required'>
+							required='required' value={content} >
 						</textarea>
 					</div>
 					<div className='form-group'>
 						<input type='checkbox' id='id_draft' name='draft' className='form-control'
-							 onChange={this.handleDraftChange} checked={this.state.draft} />
+							 onChange={this.handleDraftChange} checked={this.state.draft}
+							 value={draft} />
 						<label for='id_draft'>Draft</label>
 						<button onClick={(event) => {event.preventDefault(); this.handleDraftChange()}}>Toggle Draft</button>
 					</div>
