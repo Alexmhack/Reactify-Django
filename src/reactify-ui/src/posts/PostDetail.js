@@ -5,7 +5,8 @@ class PostDetail extends Component {
 	constructor (props) {
 		super(props)
 		this.state = {
-			slug: null
+			slug: null,
+			post: null
 		}
 	}
 
@@ -16,6 +17,30 @@ class PostDetail extends Component {
 				slug: slug
 			})
 		}
+	}
+
+	loadPosts = (slug) => {
+		let thisComp = this
+		const endpoint = `/api/posts/${slug}/`
+		let lookupOptions = {
+			method: "GET",
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		}
+
+		// fetch the posts list api
+		fetch(endpoint, lookupOptions)
+		.then(function(response) {
+			return response.json()
+		}).then(function(responseData) {
+			console.log(responseData)
+			thisComp.setState({
+				posts: responseData
+			})
+		}).catch(function(errors) {
+			console.error(errors)
+		})
 	}
 
 	render () {
