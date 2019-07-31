@@ -115,7 +115,8 @@ class PostCreate extends Component {
 					</div>
 					<div className='form-group'>
 						<input type='checkbox' id='id_draft' name='draft' className='form-control'
-							 onChange={this.handleDraftChange} checked={this.state.draft} />
+							 onChange={this.handleDraftChange} checked={this.state.draft}
+							 value={this.state.draft} />
 						<label for='id_draft'>Draft</label>
 						<button onClick={this.handleDraftChange}>Toggle Draft</button>
 					</div>
