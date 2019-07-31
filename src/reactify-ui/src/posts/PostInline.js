@@ -9,7 +9,9 @@ class PostInline extends Component {
       <div>
       	{post !== undefined ? 
       		<div className={elClass}>
-		        <h1>{post.title}</h1>
+		        <h1>
+              <a href={`/posts/${post.slug}`}>{post.title}</a>
+            </h1>
             <p>{post.content}</p>
 		        <p>{post.draft === true ? 'Draft' : ''}</p>
 		      </div>
