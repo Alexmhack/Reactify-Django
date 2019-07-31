@@ -11,7 +11,7 @@ class PostInline extends Component {
       	{post !== undefined ? 
       		<div className={elClass}>
 		        <h1>
-              <Link maintainScrollPosition={false} to={{
+              <Link maintainScrollPosition={true} to={{
                 pathname: `/posts/${post.slug}`,
                 state: {fromDashboard: false}
               }}>
