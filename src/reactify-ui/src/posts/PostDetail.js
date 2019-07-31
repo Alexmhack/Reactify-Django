@@ -37,10 +37,17 @@ class PostDetail extends Component {
 			return response.json()
 		}).then(function(responseData) {
 			console.log(responseData)
-			thisComp.setState({
-				post: responseData,
-				doneLoading: true
-			})
+			if (responseData.detail) {
+				thisComp.setState({
+					post: null,
+					doneLoading: true
+				})
+			} else {
+				thisComp.setState({
+					post: responseData,
+					doneLoading: true
+				})
+			}
 		}).catch(function(errors) {
 			console.error(errors)
 		})
@@ -55,7 +62,7 @@ class PostDetail extends Component {
 			<div>
 				{doneLoading !== false ?
 				<div>
-					{post == null ? 'Not Found' :
+					{post === null ? 'Not Found' :
 						<div>
 							<h1>{post.slug}</h1>
 							<h1>{post.title}</h1>
