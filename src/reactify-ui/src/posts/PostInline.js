@@ -11,7 +11,7 @@ class PostInline extends Component {
       		<div className={elClass}>
 		        <h1>{post.title}</h1>
             <p>{post.content}</p>
-		        <p>{post.draft}</p>
+		        <p>{post.draft === true ? 'Draft' : ''}</p>
 		      </div>
 	        : ''
 	      }
