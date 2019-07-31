@@ -76,7 +76,7 @@ class PostDetail extends Component {
 							<h1>{post.title}</h1>
 							<h1>{post.content}</h1>
 
-							{post.owner === true ? <p>Update post</p> : ''}
+							{post.owner === true ? <PostUpdate post={post} /> : ''}
 
 							<Link maintainScrollPosition={false} to={{
 								pathname: '/posts/',
