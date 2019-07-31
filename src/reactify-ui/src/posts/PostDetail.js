@@ -48,15 +48,26 @@ class PostDetail extends Component {
 
 	render () {
 		const {slug} = this.state
+		const {doneLoading} = this.state
+		const {post} = this.state
+
 		return (
 			<div>
-				<h1>{slug}</h1>
-				<Link maintainScrollPosition={false} to={{
-					pathname: '/posts/',
-					state: {fromDashboard: false}
-				}}>
-					Posts
-				</Link>
+				{doneLoading !== false ?
+				<div>
+					{post !== null ? 'Not Found' :
+						<h1>{post.slug}</h1>
+						<h1>{post.title}</h1>
+						<h1>{post.content}</h1>
+
+						<Link maintainScrollPosition={false} to={{
+							pathname: '/posts/',
+							state: {fromDashboard: false}
+						}}>
+							Posts
+						</Link>
+					}
+				</div> : <p>Loading...</p>}
 			</div>
 		)
 	}
