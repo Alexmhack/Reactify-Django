@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import cookies from 'react-cookies'
 import 'whatwg-fetch'
 
+import PostUpdate from './PostUpdate'
+
 class PostDetail extends Component {
 	constructor (props) {
 		super(props)
