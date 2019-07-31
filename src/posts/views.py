@@ -13,6 +13,11 @@ class PostDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field        = 'slug'
     permission_classes  = [IsOwnerOrReadOnly]
 
+    def get_serializer_context(self):
+    	context = super().get_serializer_context()
+    	context['request'] = self.request
+    	return context
+
 
 class PostListCreateAPIView(generics.ListCreateAPIView):
     queryset            = Post.objects.all()
