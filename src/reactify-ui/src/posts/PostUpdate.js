@@ -16,7 +16,7 @@ class PostUpdate extends Component {
 
 	updatePost = (data) => {
 		const {post} = this.props
-		const endpoint = `/api/posts/${post.slug}`
+		const endpoint = `/api/posts/${post.slug}/`
 		const csrfToken = cookies.load('csrftoken')
 
 		// define a let of the => this to use anywhere within this scope
@@ -37,9 +37,7 @@ class PostUpdate extends Component {
 			.then(function(response) {
 				return response.json()
 			}).then(function(responseData) {
-				const {newPostItem} = thisComp.props
-				newPostItem(responseData)
-				thisComp.clearForm()
+				console.log(responseData)
 			}).catch(function(errors) {
 				console.error(errors)
 			})
