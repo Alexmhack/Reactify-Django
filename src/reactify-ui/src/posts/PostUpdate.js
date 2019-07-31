@@ -15,7 +15,8 @@ class PostUpdate extends Component {
 	}
 
 	updatePost = (data) => {
-		const endpoint = '/api/posts/'
+		const {post} = this.props
+		const endpoint = `/api/posts/${post.slug}`
 		const csrfToken = cookies.load('csrftoken')
 
 		// define a let of the => this to use anywhere within this scope
