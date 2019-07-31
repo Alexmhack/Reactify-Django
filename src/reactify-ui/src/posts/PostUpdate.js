@@ -24,7 +24,7 @@ class PostUpdate extends Component {
 
 		if (csrfToken !== undefined) {
 			let lookupOptions = {
-				method: "POST",
+				method: "PUT",
 				headers: {
 					'Content-Type': 'application/json',
 					'X-CSRFToken': csrfToken
