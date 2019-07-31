@@ -10,7 +10,8 @@ class PostInline extends Component {
       	{post !== undefined ? 
       		<div className={elClass}>
 		        <h1>{post.title}</h1>
-		        <p>{post.content}</p>
+            <p>{post.content}</p>
+		        <p>{post.draft}</p>
 		      </div>
 	        : ''
 	      }
