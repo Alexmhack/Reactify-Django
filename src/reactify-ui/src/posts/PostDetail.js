@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import cookies from 'react-cookies'
+import 'whatwg-fetch'
 
 class PostDetail extends Component {
 	constructor (props) {
@@ -29,6 +31,12 @@ class PostDetail extends Component {
 			headers: {
 				'Content-Type': 'application/json'
 			}
+		}
+
+		const csrfToken = cookies.load('csrftoken')
+		if (csrfToken !== undefined) {
+			lookupOptions['credentials'] = 'include'
+			lookupOptions['headers']['X-CSRFToken'] = csrfToken
 		}
 
 		// fetch the posts list api
@@ -67,6 +75,8 @@ class PostDetail extends Component {
 							<h1>{post.slug}</h1>
 							<h1>{post.title}</h1>
 							<h1>{post.content}</h1>
+
+							{post.owner === true ? <p>Update post</p> : ''}
 
 							<Link maintainScrollPosition={false} to={{
 								pathname: '/posts/',
