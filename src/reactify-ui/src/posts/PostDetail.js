@@ -55,17 +55,19 @@ class PostDetail extends Component {
 			<div>
 				{doneLoading !== false ?
 				<div>
-					{post !== null ? 'Not Found' :
-						<h1>{post.slug}</h1>
-						<h1>{post.title}</h1>
-						<h1>{post.content}</h1>
+					{post == null ? 'Not Found' :
+						<div>
+							<h1>{post.slug}</h1>
+							<h1>{post.title}</h1>
+							<h1>{post.content}</h1>
 
-						<Link maintainScrollPosition={false} to={{
-							pathname: '/posts/',
-							state: {fromDashboard: false}
-						}}>
-							Posts
-						</Link>
+							<Link maintainScrollPosition={false} to={{
+								pathname: '/posts/',
+								state: {fromDashboard: false}
+							}}>
+								Posts
+							</Link>
+						</div>
 					}
 				</div> : <p>Loading...</p>}
 			</div>
