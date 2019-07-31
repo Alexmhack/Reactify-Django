@@ -71,7 +71,7 @@ class PostCreate extends Component {
 	}
 
 	handleDraftChange = (event) => {
-		event.preventDefault()
+		if (event) event.preventDefault()
 		this.setState({
 			draft: !this.state.draft
 		})
@@ -109,7 +109,8 @@ class PostCreate extends Component {
 					<div className='form-group'>
 						<label for='id_content'>Post Content</label>
 						<textarea type='text' id='id_content' name='content' className='form-control'
-							placeholder='Blog post content' onChange={this.handleInputChange} required='required'>
+							placeholder='Blog post content' onChange={this.handleInputChange}
+							required='required'>
 						</textarea>
 					</div>
 					<div className='form-group'>
