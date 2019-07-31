@@ -83,12 +83,23 @@ class PostUpdate extends Component {
 	}
 
 	componentDidMount = () => {
-		this.setState({
-			title: null,
-			content: null,
-			draft: false,
-			publish: moment().format('YYYY-MM-DD')
-		})
+		const {post} = this.props
+
+		if (post !== undefined) {
+			this.setState({
+				title: post.title,
+				content: post.content,
+				draft: post.draft,
+				publish: moment(post.publish).format('YYYY-MM-DD')
+			})
+		} else {
+			this.setState({
+				title: null,
+				content: null,
+				draft: false,
+				publish: moment().format('YYYY-MM-DD')
+			})
+		}
 
 		this.postTitleRef.focus()
 	}
