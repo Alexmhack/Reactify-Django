@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import cookies from 'react-cookies'
 import 'whatwg-fetch'
 
-import PostUpdate from './PostUpdate'
+import PostForm from './PostForm'
 
 class PostDetail extends Component {
 	constructor (props) {
@@ -78,7 +78,7 @@ class PostDetail extends Component {
 							<h1>{post.title}</h1>
 							<h1>{post.content}</h1>
 
-							{post.owner === true ? <PostUpdate post={post} /> : ''}
+							{post.owner === true ? <PostForm post={post} /> : ''}
 
 							<Link maintainScrollPosition={false} to={{
 								pathname: '/posts/',

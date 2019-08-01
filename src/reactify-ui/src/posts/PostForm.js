@@ -4,7 +4,7 @@ import 'whatwg-fetch'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-class PostUpdate extends Component {
+class PostForm extends Component {
 	constructor (props) {
 		super(props)
 		this.state = {
@@ -151,4 +151,4 @@ class PostUpdate extends Component {
 	}
 }
 
-export default PostUpdate
+export default PostForm
