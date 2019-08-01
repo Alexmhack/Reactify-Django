@@ -135,7 +135,7 @@ class PostUpdate extends Component {
 					<button type='submit' className='btn btn-primary'>Save</button>
 				</form>
 				<div className='my-5'>
-					<Link maintainScrollPosition={{false}} to={{
+					<Link maintainScrollPosition={false} to={{
 						pathname: '/posts/',
 						state: {fromDashboard: false}
 					}}
