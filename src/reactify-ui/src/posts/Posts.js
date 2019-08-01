@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import 'whatwg-fetch'
 import cookies from 'react-cookies'
 import { Link } from 'react-router-dom'
@@ -78,15 +78,15 @@ class Posts extends Component {
 						)
 					})
 					: <p>No posts found.</p>
-					<div className='my-5 py-5'>
-						<Link maintainScrollPosition={false} to={{
-							pathname: '/posts/create',
-							state: {fromDashboard: false}
-						}}>
-							Create Post
-						</Link>
-					</div>
 				}
+				<Fragment>
+					<Link maintainScrollPosition={false} to={{
+						pathname: '/posts/create',
+						state: {fromDashboard: false}
+					}}>
+						Create Post
+					</Link>
+				</Fragment>
 			</div>
 		)
 	}
