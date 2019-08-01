@@ -17,7 +17,7 @@ class PostUpdate extends Component {
 
 	updatePost = (data) => {
 		const {post} = this.props
-		const endpoint = `/api/posts/${post.slug}/`
+		let endpoint = '/api/posts/'
 		const csrfToken = cookies.load('csrftoken')
 
 		// define a let of the => this to use anywhere within this scope
@@ -25,13 +25,18 @@ class PostUpdate extends Component {
 
 		if (csrfToken !== undefined) {
 			let lookupOptions = {
-				method: "PUT",
+				method: "POST",
 				headers: {
 					'Content-Type': 'application/json',
 					'X-CSRFToken': csrfToken
 				},
 				body: JSON.stringify(data),
 				credentials: 'include'
+			}
+
+			if (post !== null || post !== undefined) {
+				lookupOptions['method'] = 'PUT'
+				endpoint = `/api/posts/${post.slug}/`
 			}
 
 			fetch(endpoint, lookupOptions)
