@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import 'whatwg-fetch'
 import cookies from 'react-cookies'
+import { Link } from 'react-router-dom'
 
 import PostInline from './PostInline'
 import PostCreate from './PostCreate'
@@ -77,15 +78,25 @@ class Posts extends Component {
 						)
 					})
 					: <p>No posts found.</p>
-				}
-				{(csrfToken !== undefined && csrfToken !== null)  ? 
-					<div className='p-5 m-5'>
-						<PostCreate newPostItem={this.handleNewPostItem} />
+					<div className='my-5 py-5'>
+						<Link maintainScrollPosition={false} to={{
+							pathname: '/posts/create',
+							state: {fromDashboard: false}
+						}}>
+							Create Post
+						</Link>
 					</div>
-				: ''}
+				}
 			</div>
 		)
 	}
 }
 
 export default Posts
+
+// hide post create form
+// {(csrfToken !== undefined && csrfToken !== null)  ? 
+// 	<div className='p-5 m-5'>
+// 		<PostCreate newPostItem={this.handleNewPostItem} />
+// 	</div>
+// : ''}
