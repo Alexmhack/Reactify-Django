@@ -34,7 +34,7 @@ class PostUpdate extends Component {
 				credentials: 'include'
 			}
 
-			if (post !== null || post !== undefined) {
+			if (post !== undefined) {
 				lookupOptions['method'] = 'PUT'
 				endpoint = `/api/posts/${post.slug}/`
 			}
