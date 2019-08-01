@@ -74,11 +74,6 @@ class PostUpdate extends Component {
 		})
 	}
 
-	clearForm = (event) => {
-		if (event) event.preventDefault()
-		this.createFormRef.reset()
-	}
-
 	componentDidMount = () => {
 		const {post} = this.props
 
@@ -138,7 +133,6 @@ class PostUpdate extends Component {
 					</div>
 					<button type='submit' className='btn btn-primary'>Save</button>
 				</form>
-				<button className='btn btn-secondary' onClick={this.clearForm}>Cancel</button>
 			</div>
 		)
 	}
