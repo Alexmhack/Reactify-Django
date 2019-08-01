@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import cookies from 'react-cookies'
 import 'whatwg-fetch'
+import { Link } from 'react-router-dom'
 import moment from 'moment'
 
 class PostUpdate extends Component {
@@ -133,6 +134,13 @@ class PostUpdate extends Component {
 					</div>
 					<button type='submit' className='btn btn-primary'>Save</button>
 				</form>
+				<div className='my-5'>
+					<Link maintainScrollPosition={{false}} to={{
+						pathname: '/posts/',
+						state: {fromDashboard: false}
+					}}
+					>Posts</Link>
+				</div>
 			</div>
 		)
 	}
