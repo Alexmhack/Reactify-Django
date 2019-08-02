@@ -66,6 +66,7 @@ class PostDetail extends Component {
 	render () {
 		const {doneLoading} = this.state
 		const {post} = this.state
+		const {author} = this.state
 
 		return (
 			<div>
