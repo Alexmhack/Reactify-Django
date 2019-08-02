@@ -74,6 +74,7 @@ class Posts extends Component {
 	render () {
 		const {posts} = this.state
 		const {postClass} = this.state
+		const {author} = this.state
 		// const csrfToken = cookies.load('csrftoken')
 
 		return (
@@ -87,14 +88,16 @@ class Posts extends Component {
 					})
 					: <p>No posts found.</p>
 				}
-				<Fragment>
-					<Link maintainScrollPosition={false} to={{
-						pathname: '/posts/create',
-						state: {fromDashboard: false}
-					}}>
-						Create Post
-					</Link>
-				</Fragment>
+				{author === true ?
+					<Fragment>
+						<Link maintainScrollPosition={false} to={{
+							pathname: '/posts/create',
+							state: {fromDashboard: false}
+						}}>
+							Create Post
+						</Link>
+					</Fragment>
+				: ''}
 			</div>
 		)
 	}
