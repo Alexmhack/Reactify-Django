@@ -1,3 +1,5 @@
+// Reference code take from PostCreate (previous piece of code)
+
 import React, { Component } from 'react'
 import cookies from 'react-cookies'
 import 'whatwg-fetch'
