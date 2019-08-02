@@ -86,6 +86,12 @@ class PostDetail extends Component {
 							}}>
 								Posts
 							</Link>
+							<Link maintainScrollPosition={false} to={{
+								pathname: '/posts/create',
+								state: {fromDashboard: false}
+							}}>
+								Create Post
+							</Link>
 						</div>
 					}
 				</div> : <p>Loading...</p>}
