@@ -34,6 +34,12 @@ class Posts extends Component {
 			}
 		}
 
+		const csrfToken = cookies.load('csrftoken')
+		if (csrfToken !== undefined) {
+			lookupOptions['credentials'] = 'include'
+			lookupOptions['headers']['X-CSRFToken'] = csrfToken
+		}
+
 		// fetch the posts list api
 		fetch(endpoint, lookupOptions)
 		.then(function(response) {
