@@ -20,9 +20,13 @@ class Posts extends Component {
 		}
 	}
 
-	loadPosts = () => {
+	loadPosts = (nextEndpoint) => {
+		let endpoint = '/api/posts/'
+		if (nextEndpoint !== undefined) {
+			endpoint = nextEndpoint
+		}
+
 		let thisComp = this
-		const endpoint = '/api/posts/'
 		let lookupOptions = {
 			method: "GET",
 			headers: {
