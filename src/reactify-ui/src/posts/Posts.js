@@ -12,7 +12,11 @@ class Posts extends Component {
 
 		this.state = {
 			posts: [],
-			postClass: 'card'
+			postClass: 'card',
+			author: null,
+			next: null,
+			previous: null,
+			count: null
 		}
 	}
 
@@ -33,7 +37,11 @@ class Posts extends Component {
 		}).then(function(responseData) {
 			console.log(responseData)
 			thisComp.setState({
-				posts: responseData
+				posts: responseData.results,
+				author: responseData.author,
+				next: responseData.next,
+				previous: responseData.previous,
+				count: responseData.count
 			})
 		}).catch(function(errors) {
 			console.error(errors)
