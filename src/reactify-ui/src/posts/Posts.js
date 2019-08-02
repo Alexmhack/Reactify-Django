@@ -46,10 +46,10 @@ class Posts extends Component {
 			return response.json()
 		}).then(function(responseData) {
 			let currentPosts = thisComp.state.posts
-			currentPosts.concat(responseData.results)
+			let newPosts = currentPosts.concat(responseData.results)
 
 			thisComp.setState({
-				posts: currentPosts,
+				posts: newPosts,
 				author: responseData.author,
 				next: responseData.next,
 				previous: responseData.previous,
