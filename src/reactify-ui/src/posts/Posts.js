@@ -4,7 +4,7 @@ import cookies from 'react-cookies'
 import { Link } from 'react-router-dom'
 
 import PostInline from './PostInline'
-import PostCreate from './PostCreate'
+// import PostCreate from './PostCreate'
 
 class Posts extends Component {
 	constructor (props) {
@@ -66,7 +66,7 @@ class Posts extends Component {
 	render () {
 		const {posts} = this.state
 		const {postClass} = this.state
-		const csrfToken = cookies.load('csrftoken')
+		// const csrfToken = cookies.load('csrftoken')
 
 		return (
 			<div>

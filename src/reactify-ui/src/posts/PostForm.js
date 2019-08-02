@@ -21,7 +21,7 @@ class PostForm extends Component {
 		const csrfToken = cookies.load('csrftoken')
 
 		// define a let of the => this to use anywhere within this scope
-		let thisComp = this
+		// let thisComp = this
 
 		if (csrfToken !== undefined) {
 			let lookupOptions = {
@@ -81,7 +81,7 @@ class PostForm extends Component {
 	}
 
 	clearForm = (event) => {
-		if (event) event.preventDefault()
+		event.preventDefault()
 		this.createFormRef.reset()
 	}
 

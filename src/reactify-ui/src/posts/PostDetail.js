@@ -64,7 +64,6 @@ class PostDetail extends Component {
 	}
 
 	render () {
-		const {slug} = this.state
 		const {doneLoading} = this.state
 		const {post} = this.state
 
