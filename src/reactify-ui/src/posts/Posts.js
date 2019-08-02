@@ -77,10 +77,20 @@ class Posts extends Component {
 		})
 	}
 
+	loadMorePosts = (event) => {
+		event.preventDefault()
+
+		const {next} = this.state
+		if (next !== undefined || next !== null) {
+			this.loadPosts(next)
+		}
+	}
+
 	render () {
 		const {posts} = this.state
 		const {postClass} = this.state
 		const {author} = this.state
+		const {next} = this.state
 		// const csrfToken = cookies.load('csrftoken')
 
 		return (
@@ -94,6 +104,9 @@ class Posts extends Component {
 					})
 					: <p>No posts found.</p>
 				}
+
+				{next !== null ? <button onClick={this.loadMorePosts}>Load more posts</button> : ''}
+
 				{author === true ?
 					<Fragment>
 						<Link maintainScrollPosition={false} to={{
